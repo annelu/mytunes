@@ -23,7 +23,6 @@ describe('App', function() {
 
   it('sets the current song when a "play" event is fired', function(){
     expect(app.get('currentSong')).toEqual(jasmine.any(Object));
-    console.log(app.get('currentSong'))
     app.get('library').at(0).play();
     expect(app.get('currentSong')).toEqual(app.get('library').at(0));
   });
