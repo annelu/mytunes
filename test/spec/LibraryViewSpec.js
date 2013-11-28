@@ -19,7 +19,7 @@ describe("LibraryView", function() {
     fakeSubview = { render: jasmine.createSpy() };
     spyOn(window, 'LibraryEntryView').andReturn(fakeSubview);
 
-    view = new LibraryView({collection: fakeSongs});
+    view = new MyTunes.Views.LibraryView({collection: fakeSongs});
   });
 
   it("should render its subviews when you render it", function(){
