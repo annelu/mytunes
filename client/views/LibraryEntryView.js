@@ -4,10 +4,6 @@ window.MyTunes.Views = window.MyTunes.Views || {};
 
 MyTunes.Views.LibraryEntryView = Backbone.View.extend({
 
-  initialize: function(){
-
-  },
-  
   tagName: 'tr',
 
   template: _.template('<td>(<%= artist %>)</td><td><%= title %></td>'),

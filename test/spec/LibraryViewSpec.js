@@ -14,7 +14,6 @@ describe("LibraryView", function() {
         url: 'fake/url'
       }
     ];
-
     fakeSongs = new MyTunes.Collections.Songs(fakeSongData);
   });
 
