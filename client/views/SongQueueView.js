@@ -2,13 +2,13 @@
 window.MyTunes = window.MyTunes || {};
 window.MyTunes.Views = window.MyTunes.Views || {};
 
-MyTunes.Views.SongQueueView = Backbone.View.extend({
-
-  initialize: function() {
-  },
-
-  render: function() {
-    return this.$el;
+MyTunes.Views.SongQueueView = MyTunes.Views.SongQueueEntryView.extend({
+  initialize: function(){
+    this.collection.on('add', function(){
+      this.render();
+    }, this);
+    this.collection.on('remove', function(){
+      this.render();
+    }, this);
   }
-
 });

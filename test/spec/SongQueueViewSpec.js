@@ -20,10 +20,10 @@ describe('SongQueueView', function() {
     spyOn(MyTunes.Views.SongQueueEntryView.prototype, 'render').andCallThrough();
     view = new MyTunes.Views.SongQueueView({collection: fakeSongs});
     view.render();
-    expect(SongQueueEntryView.prototype.render).toHaveBeenCalled();
+    expect(MyTunes.Views.SongQueueEntryView.prototype.render).toHaveBeenCalled();
   });
 
-  xit('renders when add or remove event fires from the song queue collection', function(){
+  it('renders when add or remove event fires from the song queue collection', function(){
     spyOn(MyTunes.Views.SongQueueView.prototype, 'render').andCallThrough();
     view = new MyTunes.Views.SongQueueView({collection: fakeSongs});
     view.collection.add({
