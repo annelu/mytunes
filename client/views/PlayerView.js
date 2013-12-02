@@ -7,8 +7,11 @@ MyTunes.Views.PlayerView = Backbone.View.extend({
   // HTML5 (native) audio tag is being used
   // see: https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Using_HTML5_audio_and_video
   el: '<audio controls autoplay />',
-
   initialize: function() {
+    var that = this;
+    this.el.addEventListener('ended', function(){
+      that.model.ended();
+    })
   },
 
   setSong: function(song){
@@ -18,6 +21,9 @@ MyTunes.Views.PlayerView = Backbone.View.extend({
 
   render: function(){
     return this.$el.attr('src', this.model.get('url'));
+  },
+  endSong: function(song) {
+    console.log(this.model);
   }
 
 });

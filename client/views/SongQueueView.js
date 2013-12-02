@@ -2,13 +2,26 @@
 window.MyTunes = window.MyTunes || {};
 window.MyTunes.Views = window.MyTunes.Views || {};
 
-MyTunes.Views.SongQueueView = MyTunes.Views.SongQueueEntryView.extend({
+MyTunes.Views.SongQueueView = Backbone.View.extend({
+  tagName: "table",
   initialize: function(){
+    this.render();
     this.collection.on('add', function(){
       this.render();
     }, this);
     this.collection.on('remove', function(){
       this.render();
     }, this);
+  },
+ 
+  render: function(){
+    this.$el.html("<th>Queue</th>").append(
+      this.collection.map(
+        function(song){
+          return new MyTunes.Views.SongQueueEntryView({model: song}).render();
+        }
+      )
+    );
   }
+
 });
