@@ -1,0 +1,8 @@
+// SongQueue.js - Defines a backbone model class for the song queue.
+window.MyTunes = window.MyTunes || {};
+window.MyTunes.Models = window.MyTunes.Models || {};
+
+MyTunes.Model.SongQueue = Backbone.Model.extend({
+  initialize: function(){
+  },
+});

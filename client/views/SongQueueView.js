@@ -6,15 +6,16 @@ MyTunes.Views.SongQueueView = Backbone.View.extend({
   tagName: "table",
   initialize: function(){
     this.render();
-    this.collection.on('add', function(){
+    this.collection.on('add remove', function(){
       this.render();
     }, this);
-    this.collection.on('remove', function(){
+    this.collection.on('change', function(){
       this.render();
     }, this);
   },
  
   render: function(){
+    this.$el.html('');
     this.$el.html("<th>Queue</th>").append(
       this.collection.map(
         function(song){
@@ -22,6 +23,10 @@ MyTunes.Views.SongQueueView = Backbone.View.extend({
         }
       )
     );
+  },
+  setQueue: function(queue){
+    this.collection = queue;
+    this.render();
   }
 
 });
